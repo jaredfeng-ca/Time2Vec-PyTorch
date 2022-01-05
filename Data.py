@@ -3,11 +3,11 @@ import pandas as pd
 import numpy as np
 
 class ToyDataset(Dataset):
-    def __init__(self):
+    def __init__(self, path):
         super(ToyDataset, self).__init__()
         
-        df = pd.read_csv("./data/toy_dataset.csv")
-        self.x = df["x"].values
+        df = pd.read_csv(path)
+        self.x = df.drop("y", axis=1).values
         self.y = df["y"].values
 
     def __len__(self):
@@ -17,5 +17,6 @@ class ToyDataset(Dataset):
         return np.array(self.x[idx]), self.y[idx]
 
 if __name__ == "__main__":
-    dataset = ToyDataset()
-    print(dataset[6])
+    path = './data/toy_dataset_v2.csv'
+    dataset = ToyDataset(path)
+    print(dataset)

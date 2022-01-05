@@ -10,7 +10,7 @@ class ToyPipeline(AbstractPipelineClass):
     def __init__(self, model):
         self.model = model
     
-    def train(self):
+    def train(self, n_epochs=30):
         loss_fn = nn.CrossEntropyLoss()
 
         dataset = ToyDataset()
@@ -18,13 +18,12 @@ class ToyPipeline(AbstractPipelineClass):
 
         optimizer = torch.optim.Adam(self.model.parameters(), lr=1e-3)
 
-        num_epochs = 100
-
-        for ep in range(num_epochs):
+        for ep in range(n_epochs):
             for x, y in dataloader:
                 optimizer.zero_grad()
 
-                y_pred = self.model(x.unsqueeze(1).float())
+                #x = x.unsqueeze(1)
+                y_pred = self.model(x.float())
                 loss = loss_fn(y_pred, y)
 
                 loss.backward()
@@ -41,6 +40,3 @@ class ToyPipeline(AbstractPipelineClass):
 if __name__ == "__main__":
     pipe = ToyPipeline(Model("sin", 42))
     pipe.train()
-
-    #pipe = ToyPipeline(Model("cos", 12))
-    #pipe.train()
