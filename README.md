@@ -10,8 +10,6 @@ Gradients of Activations like ReLU, Softmax, Sigmoid etc. either explode or plat
 
 Currently, a synthesized dataset of integers is used to test the functionality of the proposed method. 
 
-I plan to add more experiments to this repository.
-
 ## Prerequisites
 
 PyTorch (Tested on PyTorch 1.1 on Python 3.6)
@@ -29,7 +27,11 @@ PyTorch (Tested on PyTorch 1.1 on Python 3.6)
 
 ## Authors
 
-***Surya Kant Sahu** - [ojus1](https://github.com/ojus1)
+**Surya Kant Sahu** - [ojus1](https://github.com/ojus1)
+
+## Modifier 
+
+**Jared Feng** - [jaredfeng-ca](https://github.com/jaredfeng-ca)
 
 ## License
 
